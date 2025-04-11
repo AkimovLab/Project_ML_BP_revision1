@@ -1,0 +1,27 @@
+#PBS -S /bin/bash
+### General Options ###
+#PBS -N P4-MD_divacancy
+#PBS -V
+### Resource Handling ###
+#PBS -l nodes=1:ppn=32 
+#PBS -q bahonar
+#PBS -l walltime=100:00:00
+### Output Stream Options ### 
+### Mail Options ###  
+#PBS -m bea
+
+### Move to working directory ###
+cd /home/99425001/Desktop/zabihi/divacancy
+
+# Activate CP2K environment
+source /home/99425001/miniconda3/etc/profile.d/conda.sh
+conda activate cp2k-mpi
+
+# Set CP2K paths
+export PATH=/home/99425001/cp2k-2025.1/build/bin:$PATH
+export CP2K_DATA_DIR=/home/99425001/cp2k-2025.1/data
+
+# Run CP2K with MPI
+mpirun -np 32 cp2k.psmp -i MD_divac1-1_2600.restart -o out-P4-divacancy-md.log
+
+exit 0
