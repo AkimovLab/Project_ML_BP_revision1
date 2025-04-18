@@ -1,4 +1,4 @@
-# 01_md – Molecular Dynamics Simulations
+# 02_md – Molecular Dynamics Simulations
 
 This directory contains **DFT-based molecular dynamics (MD)** simulations of monolayer black phosphorus using **CP2K**. Simulations were performed on two systems:
 
