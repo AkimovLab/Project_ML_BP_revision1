@@ -6,19 +6,19 @@ This project investigates the nonradiative recombination dynamics in monolayer b
 
 ## Folder Structure and Descriptions
 
-- **0_structure_preparation**  
+- **01_structure_preparation**  
   Files for structure setup, including the original CIF and generated supercell.
 
-- **01_md**  
+- **02_md**  
   Molecular dynamics simulations: trajectory generation, initial setup, and structural evolution.
 
-- **02_tddft**  
+- **03_tddft**  
   Time-dependent DFT and hybrid functional calculations. Functionals used: **BHandLYP**, **B3LYP**, **PBE0**.
 
-- **03_nacs**  
+- **04_nacs**  
   Computation of nonadiabatic couplings in the **SD** and **CI** bases. Also includes plotting tools for spectra, energy vs. time, and NAC maps using data from TD-DFT and MD steps.
 
-- **04_namd**  
+- **05_namd**  
   Nonadiabatic molecular dynamics (NA-MD) simulations using the **C++ implementation in Libra**.
 
 ## Instructions
