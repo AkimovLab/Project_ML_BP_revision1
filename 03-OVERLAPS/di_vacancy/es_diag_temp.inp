@@ -1,0 +1,161 @@
+&GLOBAL
+ PROJECT p4-di-PBE0-tddft 
+ RUN_TYPE ENERGY 
+ PRINT_LEVEL MEDIUM 
+&END GLOBAL 
+&FORCE_EVAL 
+   METHOD Quickstep 
+   STRESS_TENSOR  DIAGONAL_ANALYTICAL
+   &PROPERTIES
+      &TDDFPT
+         NSTATES      10             # number of excited states
+         MAX_ITER    200             # maximum number of Davidson iterations
+         CONVERGENCE [eV] 1.0e-5    # convergence on maximum energy change between iterations
+   
+         &MGRID
+            CUTOFF 200  # separate cutoff for TDDFPT calc
+         &END
+      &END TDDFPT
+    &END PROPERTIES
+
+    &DFT
+   BASIS_SET_FILE_NAME BASIS_MOLOPT 
+   POTENTIAL_FILE_NAME POTENTIAL
+   BASIS_SET_FILE_NAME BASIS_ADMM_MOLOPT 
+   BASIS_SET_FILE_NAME BASIS_ADMM 
+        WFN_RESTART_FILE_NAME ./test-RESTART.wfn
+        &POISSON
+            PERIODIC XYZ
+        &END POISSON
+        &SCF
+            MAX_SCF    200
+            EPS_SCF    1.0e-8
+            SCF_GUESS  RESTART
+            &MIXING  T
+                METHOD   PULAY_MIXING
+                ALPHA    0.5
+                NBUFFER  5
+            &END MIXING
+            ADDED_MOS 50
+			&DIAGONALIZATION ON
+            &END DIAGONALIZATION
+            !&OT ON
+            !    PRECONDITIONER  FULL_SINGLE_INVERSE
+            !    MINIMIZER       DIIS
+            !&END OT
+        &END SCF
+        &QS
+            METHOD  GPW
+            EPS_DEFAULT     1e-10
+            EPS_PGF_ORB     1e-30
+            EPS_FILTER_MATRIX    0
+        &END QS
+        &MGRID
+            NGRIDS 4
+            CUTOFF 600        #The cutoff of the finest grid level
+            REL_CUTOFF 40     #Determines the grid at which a Gaussian is mapped, giving the cutoff used for a gaussian with alpha=1 
+        &END MGRID
+        &XC
+         	2ND_DERIV_ANALYTICAL .FALSE. 
+			&XC_FUNCTIONAL 
+                &PBE 
+                    SCALE_X   0.75 #75% GGA exchange
+                    SCALE_C   1.0  #100% GGA correlation
+                &END PBE 
+                !&PBE_HOLE_T_C_LR
+                !    CUTOFF_RADIUS 5.0
+                !    SCALE_X       0.25
+                !&END PBE_HOLE_T_C_LR
+            &END XC_FUNCTIONAL
+            &HF 
+                FRACTION  0.25
+                &SCREENING
+                    EPS_SCHWARZ 1e-6
+                    SCREEN_ON_INITIAL_P TRUE
+                &END SCREENING
+                &INTERACTION_POTENTIAL
+                    POTENTIAL_TYPE  TRUNCATED
+                    CUTOFF_RADIUS   5.0
+                    T_C_G_DATA   t_c_g.dat
+                &END INTERACTION_POTENTIAL
+            &END HF 
+            DENSITY_CUTOFF      1e-10  #The cutoff on the density used by the xc calculation
+            GRADIENT_CUTOFF     1e-10  #The cutoff on the gradient density of density used by xc calculation
+            TAU_CUTOFF          1e-10  #The cutoff on tau used by the xc  calculation
+            &VDW_POTENTIAL
+                POTENTIAL_TYPE  PAIR_POTENTIAL
+                &PAIR_POTENTIAL
+                    R_CUTOFF    9     #Range of potential. The cutoff will be 2 times of this value
+                    TYPE        DFTD3
+                    PARAMETER_FILE_NAME dftd3.dat
+                    REFERENCE_FUNCTIONAL PBE0
+                    LONG_RANGE_CORRECTION T
+                &END PAIR_POTENTIAL
+            &END VDW_POTENTIAL
+            &XC_GRID
+                XC_DERIV SPLINE2_SMOOTH
+            &END XC_GRID
+        &END XC
+        &AUXILIARY_DENSITY_MATRIX_METHOD
+            ADMM_PURIFICATION_METHOD   NONE   
+            METHOD   BASIS_PROJECTION
+            EXCH_CORRECTION_FUNC PBEX
+        &END AUXILIARY_DENSITY_MATRIX_METHOD   
+        &PRINT
+        &MO ON
+         FILENAME divacancy_pbe0
+         EIGENVECTORS F
+         EIGENVALUES F
+         NDIGITS 8
+         !MO_INDEX_RANGE 1 210# e.g. 160 is the HOMO and 161 is the LUMO 
+         &EACH 
+         !QS_SCF O # request printout only after SCF convergence (default is 1 , i.e. after each SCF iteration step) 
+         &END EACH 
+        &END MO 
+         !&MULLIKEN OFF
+         !&END
+         !&HIRSHFELD OFF
+         !&END
+         &PDOS
+           APPEND T
+           COMPONENTS T
+           FILENAME divacancy_pbe0
+         &END
+         &MO_MOLDEN ON
+           FILENAME    
+           NDIGITS 8
+           GTO_KIND SPHERICAL
+         &END 	   
+         &MO_CUBES
+           NHOMO 4
+           NLUMO 4
+           WRITE_CUBE T 
+           STRIDE 2 2 2
+         &END         
+        &END PRINT		
+    &END DFT
+  &SUBSYS
+
+    &CELL
+      ABC 18.21  13.22  35.00
+      PERIODIC  XYZ
+    &END CELL
+
+    &TOPOLOGY
+      COORD_FILE_NAME p4.xyz
+      COORD_FILE_FORMAT XYZ
+      ! Only in case you use cif file
+      !&GENERATE
+      !  REORDER T
+      !&END
+    &END
+
+    &KIND P
+    ELEMENT P 
+	BASIS_SET  DZVP-MOLOPT-SR-GTH-q5 
+    POTENTIAL GTH-PBE-q5 
+    BASIS_SET AUX_FIT cFIT3 
+    &END KIND  
+     
+  &END SUBSYS
+&END FORCE_EVAL
