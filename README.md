@@ -28,5 +28,5 @@ Each folder include a `README.md` with:
 - Detailed steps for running the code
 - Expected input/output files
 
-Ensure dependencies are met before running simulations (e.g., ASE, DFTB+, Libra, Python 3.x, etc.).
+Ensure dependencies are met before running simulations (Libra, Python 3.x, etc.).
 

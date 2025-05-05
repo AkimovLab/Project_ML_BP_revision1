@@ -48,12 +48,12 @@ def load(dyn_general):
     #dyn_general.update({"hop_acceptance_algo":20, "momenta_rescaling_algo":201 })  # accept and rescale based on NAC vectors, reverse on frustrated
     #dyn_general.update({"hop_acceptance_algo":21, "momenta_rescaling_algo":200 })  # accept and rescale based on force differences, do not reverse on frustrated
     #dyn_general.update({"hop_acceptance_algo":21, "momenta_rescaling_algo":201 })  # accept and rescale based on force differences, reverse on frustrated
-    dyn_general.update({"hop_acceptance_algo":32, "momenta_rescaling_algo":0 })  # accept and rescale based on total energy, reverse on frustrated
+    dyn_general.update({"hop_acceptance_algo":31, "momenta_rescaling_algo":0 })  # accept and rescale based on total energy, reverse on frustrated
 
     #============ Surface hopping opntions =================
     #dyn_general.update({"tsh_method":-1 }) # adiabatic, no surface hopping
     #dyn_general.update({"tsh_method":0 }) # FSSH
-    dyn_general.update({"tsh_method":1 }) # GFSH
+    dyn_general.update({"tsh_method":9 }) # GFSH
     #dyn_general.update({"tsh_method":2 }) # MSSH
     #dyn_general.update({"tsh_method":3, "rep_lz":0 })  # LZ options
     #dyn_general.update({"tsh_method":4, "rep_lz":0 }) # ZN
