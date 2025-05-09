@@ -13,7 +13,7 @@ This project investigates the nonradiative recombination dynamics in monolayer b
   Molecular dynamics simulations: trajectory generation, initial setup, and structural evolution.
 
 - **03_tddft**  
-  Time-dependent DFT and hybrid functional calculations. Functionals used: **BHandLYP**, **B3LYP**, **PBE0**.
+  Time-dependent DFT and hybrid functional calculations. Functionals used: **BHandHLYP**, **B3LYP**, **PBE0**.
 
 - **04_nacs**  
   Computation of nonadiabatic couplings in the **SD** and **CI** bases. Also includes plotting tools for spectra, energy vs. time, and NAC maps using data from TD-DFT and MD steps.
