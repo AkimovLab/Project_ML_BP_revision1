@@ -12,7 +12,6 @@ This directory focuses on performing non-adiabatic molecular dynamics (NA-MD) si
 * **NAMD.ipynb:** A Jupyter notebook that guides the user through setting up and running NA-MD simulations, precomputing decoherence times, and visualizing results.
 * **NAMD-PR-S1.py:** A Python script that automates the NA-MD simulations starting from state 1 using methods such as FSSH and GFSH.
 * **recipes/** - Directory containing method-specific scripts (e.g., `fssh_nbra.py`, `gfsh_nbra.py`).
-* **CP2K\_v23/** - Contains the results of prior NAC calculations (from `04-NACs`), including vibronic Hamiltonian files.
 * **decoherence\_times.txt, decoherence\_rates.txt, average\_gaps.txt:** Output files with precomputed decoherence times, rates, and energy gaps.
 
 ### NAMD.ipynb Breakdown
