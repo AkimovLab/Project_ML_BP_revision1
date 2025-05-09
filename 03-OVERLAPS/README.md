@@ -15,7 +15,7 @@ This directory, is set up for computing overlaps and extracting molecular orbita
   - `B3LYP_PRISTINE_all_pdosfiles.zip`: PDOS files for B3LYP method (pristine system).
   - `Bh_and_PRISTINE_all_logfiles.zip`: Log files for Bh method (pristine system).
   - `Bh_and_PRISTINE_all_pdosfiles.zip`: PDOS files for Bh method (pristine system).
-  - `PBEO_pristine-all_pdosfiles.tar.gz`: PDOS files for PBEO method (pristine system, compressed as tar.gz).
+  - `PBE0_pristine-all_pdosfiles.tar.gz`: PDOS files for PBE0 method (pristine system, compressed as tar.gz).
 - **Other Files**:
   - `BASIS_ADMM`, `BASIS_ADMM_MOLOPT`, `BASIS_MOLOPT`: Basis set files for CP2K calculations.
   - `GTH_BASIS_SETS`, `GTH_POTENTIALS`: Pseudopotential files for CP2K.
@@ -23,7 +23,7 @@ This directory, is set up for computing overlaps and extracting molecular orbita
   - `clean.sh`: Shell script, likely for cleaning up temporary files or resetting the directory.
   - `dftd3.dat`, `t_c_g.dat`: Data files for DFT-D3 dispersion corrections and other CP2K parameters.
   - `MD_pristine-pos-1.xyz`: XYZ file with molecular dynamics trajectory or positions (pristine system).
-  - `PBEO_pristine-all_logfiles`: Log files for PBEO method (pristine system, not compressed).
+  - `PBE0_pristine-all_logfiles`: Log files for PBE0 method (pristine system, not compressed).
   - `POTENTIAL`: Potential file for CP2K calculations.
 
 ### Dependencies
