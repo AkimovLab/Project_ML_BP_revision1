@@ -13,8 +13,8 @@ This directory, is set up for computing overlaps and extracting molecular orbita
 - **Compressed Files with Results**:
   - `B3LYP_PRISTINE_all_logfiles.zip`: Log files for B3LYP method (pristine system).
   - `B3LYP_PRISTINE_all_pdosfiles.zip`: PDOS files for B3LYP method (pristine system).
-  - `Bh_and_PRISTINE_all_logfiles.zip`: Log files for Bh method (pristine system).
-  - `Bh_and_PRISTINE_all_pdosfiles.zip`: PDOS files for Bh method (pristine system).
+  - `Bh_and_PRISTINE_all_logfiles.zip`: Log files for BHandHLYP method (pristine system).
+  - `Bh_and_PRISTINE_all_pdosfiles.zip`: PDOS files for BHandHLYP method (pristine system).
   - `PBE0_pristine-all_pdosfiles.tar.gz`: PDOS files for PBE0 method (pristine system, compressed as tar.gz).
 - **Other Files**:
   - `BASIS_ADMM`, `BASIS_ADMM_MOLOPT`, `BASIS_MOLOPT`: Basis set files for CP2K calculations.
