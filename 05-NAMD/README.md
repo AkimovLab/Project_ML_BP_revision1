@@ -63,4 +63,4 @@ python NAMD-PR-S1.py
 * Ensure that the `CP2K_v23` folder is populated with required vibronic Hamiltonian data from `04-NACs`.
 * Follow the notebook step-by-step for detailed parameter setups and data visualization.
 
-For further information, refer to the main project documentation and the [Libra repository](https://github.com/AkimovLab/Project_ML_BP_revision1).
+For further information, refer to the main project documentation (https://github.com/AkimovLab/Project_ML_BP_revision1).
