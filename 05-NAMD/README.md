@@ -1,5 +1,5 @@
 05-NAMD Directory Overview
-This directory (05-NAMD) is part of the Project_ML_BP_revision1 repository and focuses on performing non-adiabatic molecular dynamics (NA-MD) simulations within the neglect-of-back-reaction approximation (NBRA) framework using the Libra package. It contains two subdirectories, pristine and divacancy, which share similar workflows for running NA-MD simulations on the pristine and divacancy defect systems, respectively.
+This directory (05-NAMD) focuses on performing non-adiabatic molecular dynamics (NA-MD) simulations within the neglect-of-back-reaction approximation (NBRA) framework using the Libra package. It contains two subdirectories, pristine and divacancy, which share similar workflows for running NA-MD simulations on the pristine and divacancy defect systems, respectively.
 Directory Structure
 
 pristine/: Contains files and scripts for NA-MD simulations on the pristine system.
