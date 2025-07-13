@@ -15,7 +15,7 @@ params['restart_file'] = True
 # The istep and fstep
 params['istep'] = 
 params['fstep'] = 
-# Lowest and highest orbital, Here HOMO is 512
+# Lowest and highest orbital, Here HOMO is 160
 params['lowest_orbital'] = 160-30
 params['highest_orbital'] = 161+30
 # extended tight-binding calculation type
